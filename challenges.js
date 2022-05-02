@@ -67,3 +67,34 @@ printUnorderedPairs([3,5,6]) //expect [3, 5] - [3,6] - [5,6]
 //Big o run time is O(n2) (squared)
 //outer loop will always run n times
 //inner loop will average n / 2 work on average and is run n times, so total work is nsquared / 2, which is O(n2)
+
+problemNumber(4);
+let printUnorderedPairs2 = (array1, array2) => {
+  for(let i = 0; i < array1.length; i++) { //will run until the end of array1 (array of 5, 5 times)
+    for(let j = 0; j < array2.length; j++) { //will run b times (array of 5, 5 times, pj) x n of array 1
+      if(array1[i] < array2[j]) { //if the number of array 1 is less than the number from array 2
+        console.log(array1[i] + ", " + array2[j]); //console log the pair
+      }
+    }
+  }
+}
+
+printUnorderedPairs2([5,6,10,11,15], [10, 2, 3, 8, 7]) //expect [5, 10] - [5, 8] - [5, 7], [6, 10] - [6, 8] - [6,7]
+//run time explanation
+//the if statement in the inner loop runs O(1) time because it's constant
+//for every element in array1, array2 goes through b iterations where b is array2.length
+//if we say a is array1.length, then run/time for this algorithm is O(ab)
+
+problemNumber(5);
+let printUnorderedPairs3 = (array1, array2) => {
+for(let i = 0; i < array1.length; i++) { //outer loop runs a times where a = array1.length
+  for(let j = 0; j < array2.length; j++) { //inner loop will run b times where b = array2.length x a
+    for(let k = 0; k < 100000; k++) { //inner inner loop will run 100000 times regardless, making it O(1)
+      console.log(array1[i] + "," + array2[j]);
+      }
+    }
+  }
+}
+
+//the runtime for this algorithm is O(ab) because the inner inner loop is constant O(1) ... and the rest of the code
+//is the same as the previous function.. making runtime O(ab)
