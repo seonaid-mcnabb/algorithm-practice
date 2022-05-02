@@ -50,3 +50,20 @@ printPairs([3,5,6]) //expect 3,3, - 3,5 - 3, 6 - 5,3 - 5, 5 - 5, 6 - 6, 3 - 6,5 
 //Run time is O(N2) as in n/squared
 //the inner loop in this case has O(n) iterations and it is called N times -- hence n squared
 //it iterates 3 times... and is called 3 times in the above example
+
+problemNumber(3);
+let printUnorderedPairs = (array) => {
+  for(let i = 0; i < array.length; i++) {
+    for(let j = i+1; j < array.length; j++) {
+      console.log(array[i] + "," + array[j]);
+    }
+  }
+}
+
+printUnorderedPairs([3,5,6]) //expect [3, 5] - [3,6] - [5,6]
+
+//run time
+//inner loop: the first time it runs for n - 1 step, second time it runs for n - 2, third time runs for n - 3
+//Big o run time is O(n2) (squared)
+//outer loop will always run n times
+//inner loop will average n / 2 work on average and is run n times, so total work is nsquared / 2, which is O(n2)
