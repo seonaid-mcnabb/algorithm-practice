@@ -6,7 +6,7 @@ function problemNumber(number) {
 }
 
 /*------------------
-1)DETERMINING BIG O RUN TIMES
+1)SECTION 1 DETERMINING BIG O RUN TIMES
 ------------------*/
 
 //Determine the run-time of the following functions
@@ -25,15 +25,28 @@ let sumProduct = (array) => {
 
 //Test cases:
   sumProduct([1,2,3]); //expect 6,6
+
+
 //Run-time is O(N) --> originally O(n+n) but can be simplified as O(N)
 //Why, even though there are two loops?
 //Because no matter what, run time increase will be constant
 
 
-/*------------------
-2)
-------------------*/
-
 problemNumber(2);
+let printPairs = (array) => {
+  for(let i =0; i<array.length; i++) { //outer loop initializes at 0 and runs until end of array
+    for(let j=0; j<array.length; j++) { //inner loop initializes at 0 and runs until end of array
+      console.log(array[i] + "," + array[j]); //in an array of 3, inner runs 3 times before returning to outer loop
+      //in case of [3,5,6] -- ARRAY[I] will be 3 until inner loop finishes running through the array, so array [j] increases on each iteration
+      //once inner loop reaches end, we return to outer
+      //and then on second iteration, outer increases array[i] iteration 2 is 5, then runs through same iterations of 3 items 
+      //outer loop stops when end of array is reached
+    }
+  }
+}
 
-//Test cases or explanation
+printPairs([3,5,6]) //expect 3,3, - 3,5 - 3, 6 - 5,3 - 5, 5 - 5, 6 - 6, 3 - 6,5 - 6, 6
+
+//Run time is O(N2) as in n/squared
+//the inner loop in this case has O(n) iterations and it is called N times -- hence n squared
+//it iterates 3 times... and is called 3 times in the above example
