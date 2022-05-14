@@ -155,3 +155,16 @@ let isPrime = (number) => { //takes number as input
 //square root of N loops
 
 problemNumber(9);
+//compute n factorial
+
+let factorial = (number) => {
+  if (number < 0) {
+    return -1
+  } else if (number === 0) {
+    return 1;
+  } else {
+    return number * factorial(number - 1); //if number not negative or 0, run function recursively again with input of number multiplied by the number - 1
+  }
+}
+
+//recursive function thag takes O(n) time
