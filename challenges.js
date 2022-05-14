@@ -139,3 +139,19 @@ Step 3:
 Step 4: combine parts
 -combining, final runtime for this algorithm will be O(a*s(log a + log s))
 */
+
+problemNumber(8);
+let isPrime = (number) => { //takes number as input
+  for(let x = 2; x * x <= n; x++) {//initalizes x at 2, runs while x * x is less than input number, adding 1 at each iteration
+    if (n % x === 0) { //if number is divisble by x (up to the square root of n), not prime
+      return false;
+    }
+  }
+  return true; //else true
+}
+
+//run time is O(squareRootN)/
+//why? for loop work is constant --so in worst case how many loops does it go through?
+//square root of N loops
+
+problemNumber(9);
