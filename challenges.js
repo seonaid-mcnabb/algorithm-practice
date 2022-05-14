@@ -96,5 +96,46 @@ for(let i = 0; i < array1.length; i++) { //outer loop runs a times where a = arr
   }
 }
 
+console.log("Not logging results of test here as too long")
+
 //the runtime for this algorithm is O(ab) because the inner inner loop is constant O(1) ... and the rest of the code
 //is the same as the previous function.. making runtime O(ab)
+
+problemNumber(6);
+//this code should reverse an array
+let reverseArray = (array) => {
+  for(let i=0; i < array.length / 2; i++) { //initalize at 0 and run until i is less than the length of the array divided by 2, add 1 at each iteration
+    let other = array.length - i - 1; //assign other variable to the length of the array, minus i, minus 1 . ie in array of 3 would be; 3 - 0 - 1, aka 2
+    let temp = array[i]; //make temp variable that is array[i], in this case 0
+    array[i] = array[other]; //assign the value of array[2] to array[0]
+    array[other] = temp; //assign value of array[0] to array[2] 
+  }
+  console.log(array);
+}
+
+reverseArray([3,2,1]); //expect 1,2,3
+
+problemNumber(7);
+/*
+An algo that takes in an array of strings then
+-sorts each string
+-sorts full array
+--what's runtime?
+
+Step 1: define variables involved
+-s = length of longest string
+-a = length of the array
+
+Step 2: work through steps
+-To sort a string runtime is O(s log s)
+-This must be done for every string (there are a strings) - so (O a*s log s)
+
+Step 3:
+-all strings must be sorted
+-you must compare and sort
+--every string comparison takes O(s) time and there are O(a log a) comparisons to make
+--so this step will take O(a *s log a) time
+
+Step 4: combine parts
+-combining, final runtime for this algorithm will be O(a*s(log a + log s))
+*/
