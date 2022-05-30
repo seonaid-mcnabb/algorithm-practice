@@ -167,4 +167,26 @@ let factorial = (number) => {
   }
 }
 
-//recursive function thag takes O(n) time
+problemNumber(10);
+
+//function from leetcode, rotates an input number array by k
+
+let rotate = (nums, k) => {
+  k = k % nums.length;
+  //k = 3%7 = 1
+
+  if (k === 0 || nums.length === 1) return; //not the case
+
+  let reverse = (start, finish) => { //reverse function takes start adn finish params
+      for (let i = start, j = finish - 1; i < Math.floor((start + finish) / 2); i++, j--) {
+          let temp = nums[i];
+          nums[i] = nums[j];
+          nums[j] = temp;
+      }
+  }
+  reverse(0, nums.length);
+  reverse(0, k);
+  reverse(k, nums.length);
+};
+
+console.log(rotate([1,2,3,4,5,6,7], 3));
